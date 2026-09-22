@@ -31,7 +31,7 @@ messageInput.addEventListener("keydown", function(event) {
 });
 
 
-function sendMessage() {
+async function sendMessage() {
 
   const message = messageInput.value.trim();
 
@@ -63,22 +63,51 @@ function sendMessage() {
   messageInput.value = "";
 
 
-  // Temporary NARS response
-  setTimeout(function() {
+  // Connect to NARS AI backend
+try {
+    const result = await fetch("/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            message: message
+        })
+    });
 
-    const response =
-      "Thank you for your question. NARS is currently being prepared to provide medication safety information.";
+    const data = await result.json();
 
+    if (!result.ok) {
+        throw new Error(data.error || "NARS could not respond.");
+    }
+
+    const response = data.response;
 
     // Save NARS response
     currentConversation.push({
-      sender: "NARS",
-      text: response
+        sender: "NARS",
+        text: response
     });
-
 
     // Display NARS response
     displayMessage("NARS", response);
+
+    // Save conversation
+    saveConversation();
+
+} catch (error) {
+    console.error(error);
+
+    const errorMessage =
+        "Sorry, NARS could not connect to the AI service right now. Please try again.";
+
+    currentConversation.push({
+        sender: "NARS",
+        text: errorMessage
+    });
+
+    displayMessage("NARS", errorMessage);
+}
 
 
     // Save conversation
