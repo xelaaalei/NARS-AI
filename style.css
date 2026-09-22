@@ -1,0 +1,439 @@
+/* ------------------------------
+   BASIC RESET
+------------------------------ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #202123;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* ------------------------------
+   MAIN APPLICATION
+------------------------------ */
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+
+/* ------------------------------
+   SIDEBAR
+------------------------------ */
+
+.sidebar {
+  width: 260px;
+  background-color: #171717;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 14px;
+}
+
+
+/* NARS title */
+
+.sidebar-top h2 {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+
+/* New Chat button */
+
+.new-chat {
+  width: 100%;
+
+  background-color: #2a2a2a;
+  color: white;
+
+  border: 1px solid #444;
+  border-radius: 8px;
+
+  padding: 12px;
+
+  text-align: left;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.new-chat:hover {
+  background-color: #3a3a3a;
+}
+
+
+/* ------------------------------
+   CHAT HISTORY
+------------------------------ */
+
+.chat-history {
+  margin-top: 30px;
+  flex: 1;
+}
+
+.history-title {
+  color: #8e8e8e;
+  font-size: 12px;
+
+  margin-bottom: 10px;
+}
+
+.history-item {
+  width: 100%;
+
+  background: transparent;
+  border: none;
+
+  color: #d1d1d1;
+
+  text-align: left;
+
+  padding: 10px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  margin-bottom: 4px;
+}
+
+.history-item:hover {
+  background-color: #2a2a2a;
+}
+
+
+/* ------------------------------
+   SIDEBAR BOTTOM
+------------------------------ */
+
+.sidebar-bottom {
+  border-top: 1px solid #333;
+
+  padding-top: 15px;
+
+  font-size: 13px;
+
+  color: #aaa;
+}
+
+
+/* ------------------------------
+   MAIN CHAT SECTION
+------------------------------ */
+
+.main {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #ffffff;
+
+  position: relative;
+}
+
+
+/* ------------------------------
+   TOP BAR
+------------------------------ */
+
+.topbar {
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 25px;
+
+  border-bottom: 1px solid #ececec;
+
+  background-color: white;
+}
+
+.topbar h3 {
+  font-size: 17px;
+}
+
+
+/* ------------------------------
+   CHAT AREA
+------------------------------ */
+
+.chat-area {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  overflow-y: auto;
+
+  padding: 30px;
+}
+
+
+/* ------------------------------
+   WELCOME SCREEN
+------------------------------ */
+
+.welcome {
+  text-align: center;
+
+  max-width: 600px;
+
+  margin-bottom: 80px;
+}
+
+
+/* NARS LOGO */
+
+.logo {
+  width: 55px;
+  height: 55px;
+
+  background-color: #202123;
+  color: white;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  margin: 0 auto 22px;
+}
+
+
+.welcome h1 {
+  font-size: 30px;
+
+  margin-bottom: 12px;
+}
+
+
+.welcome p {
+  color: #6b6b6b;
+
+  line-height: 1.6;
+
+  font-size: 15px;
+}
+
+
+/* ------------------------------
+   MESSAGE INPUT AREA
+------------------------------ */
+
+.input-area {
+  width: 100%;
+
+  padding: 15px 25px 18px;
+
+  background-color: white;
+}
+
+
+.input-container {
+  max-width: 760px;
+
+  margin: auto;
+
+  border: 1px solid #d9d9d9;
+
+  border-radius: 18px;
+
+  padding: 10px 12px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 10px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Text box */
+
+textarea {
+  flex: 1;
+
+  border: none;
+  outline: none;
+
+  resize: none;
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  padding: 8px;
+
+  max-height: 150px;
+}
+
+
+/* Send button */
+
+.send-button {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background-color: #202123;
+
+  color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.send-button:hover {
+  background-color: #444;
+}
+
+
+/* ------------------------------
+   DISCLAIMER
+------------------------------ */
+
+.disclaimer {
+  text-align: center;
+
+  color: #858585;
+
+  font-size: 11px;
+
+  margin-top: 8px;
+}
+
+
+/* ------------------------------
+   MOBILE DESIGN
+------------------------------ */
+
+@media (max-width: 700px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .chat-area {
+    padding: 20px;
+  }
+
+  .welcome h1 {
+    font-size: 24px;
+  }
+
+  .input-area {
+    padding: 12px;
+  }
+
+}
+
+/* ==============================
+   CHAT MESSAGE LAYOUT
+============================== */
+
+.chat-area {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  overflow-y: auto;
+
+  padding: 30px 20px;
+}
+
+
+/* Individual messages */
+
+.message {
+  width: 100%;
+  max-width: 760px;
+
+  margin-bottom: 25px;
+
+  padding: 15px 20px;
+
+  border-radius: 12px;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  flex-shrink: 0;
+}
+
+
+/* Name above each message */
+
+.message-label {
+  font-weight: bold;
+
+  margin-bottom: 6px;
+
+  font-size: 14px;
+}
+
+
+/* Text inside messages */
+
+.message-text {
+  white-space: pre-wrap;
+
+  word-wrap: break-word;
+}
+
+
+/* User's message */
+
+.user-message {
+  background-color: #f1f1f1;
+}
+
+
+/* NARS's message */
+
+.nars-message {
+  background-color: white;
+
+  border: 1px solid #eeeeee;
+}
